@@ -5,6 +5,10 @@ const mongoose=require('mongoose');
 const todoController=require('./controllers/todoController');
 const PORT=process.env.PORT || 3000;
 app.use(express.json());
+app.get('/',function (req,res) {
+    res.status(200).json({message:'Welcome to my api'})
+    
+});
 app.get('/todos',todoController.getallTodo);
 app.get('/todos/:id',todoController.getTodoById);
 app.get('/todo',todoController.getTodoByName);
