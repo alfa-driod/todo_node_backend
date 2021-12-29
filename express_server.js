@@ -15,7 +15,7 @@ app.patch('/todos/:id',todoController.updateTodoById);
 
 app.listen(PORT, function () {
     console.log('server has started to run');
-    mongoose.connect(process.env.LOCAL_URL)
+    mongoose.connect(process.env.ATLAS_URL)
     .then(function(){
         console.log('DB is connected');
     })
