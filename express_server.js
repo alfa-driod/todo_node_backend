@@ -3,6 +3,7 @@ const express= require('express');
 const app= express();
 const mongoose=require('mongoose');
 const todoController=require('./controllers/todoController');
+const PORT=process.env.PORT || 3000;
 app.use(express.json());
 app.get('/todos',todoController.getallTodo);
 app.get('/todos/:id',todoController.getTodoById);
@@ -12,7 +13,7 @@ app.delete('/todos/:id',todoController.deleteTodoById);
 app.patch('/todos/:id',todoController.updateTodoById);
 
 
-app.listen(3000, function () {
+app.listen(PORT, function () {
     console.log('server has started to run');
     mongoose.connect(process.env.LOCAL_URL)
     .then(function(){
